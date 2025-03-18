@@ -7,7 +7,10 @@ import 'package:flutter/material.dart';
 class LoginPage extends StatelessWidget {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController pwController = TextEditingController();
-  LoginPage({super.key});
+
+  //tap togo to register page
+  final void Function()? onTap;
+  LoginPage({super.key, required this.onTap});
 
   //login method
   void login() {}
@@ -71,11 +74,14 @@ class LoginPage extends StatelessWidget {
                   "Not a memeber?",
                   style: TextStyle(color: Colors.grey.shade500),
                 ),
-                Text(
-                  "Register Now",
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: Colors.grey.shade500,
+                GestureDetector(
+                  onTap: onTap,
+                  child: Text(
+                    "Register Now",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.grey.shade500,
+                    ),
                   ),
                 ),
               ],
